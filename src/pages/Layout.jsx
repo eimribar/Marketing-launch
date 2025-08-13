@@ -13,19 +13,16 @@ import {
   GanttChartSquare,
   GitMerge,
   Menu,
-  Rocket,
-  DollarSign,
-  TrendingUp,
 } from "lucide-react";
 import { createPageUrl } from '@/utils';
 
 const navigationItems = [
   { name: 'Dashboard', href: 'Dashboard', icon: LayoutGrid },
-  { name: 'Marketing Tasks', href: 'Deliverables', icon: FolderKanban },
-  { name: 'Launch Timeline', href: 'Timeline', icon: GanttChartSquare },
-  { name: 'Budget Tracker', href: 'OutofScope', icon: DollarSign },
+  { name: 'Deliverables', href: 'Deliverables', icon: FolderKanban },
+  { name: 'Timeline', href: 'Timeline', icon: GanttChartSquare },
+  { name: 'Out of Scope', href: 'OutofScope', icon: GitMerge },
   { name: 'Team', href: 'Team', icon: Users },
-  { name: 'Analytics', href: 'Brandbook', icon: TrendingUp },
+  // { name: 'Brandbook', href: 'Brandbook', icon: BookCopy }, // Hidden for now
   { name: 'Admin', href: 'Admin', icon: Settings },
 ];
 
@@ -41,16 +38,18 @@ export default function Layout({ children, currentPageName }) {
                     <div className="border-b border-gray-100/80 p-6">
                         <div className="flex items-center gap-3">
                             <div className="relative">
-                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center shadow-sm">
-                                    <Rocket className="w-6 h-6 text-white" />
-                                </div>
-                                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full border-2 border-white flex items-center justify-center">
+                                <img
+                                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/f603af03a_Proncess.jpg"
+                                  alt="Princess Logo"
+                                  className="w-10 h-10 rounded-xl object-cover shadow-sm"
+                                />
+                                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full border-2 border-white flex items-center justify-center">
                                     <Sparkles className="w-2 h-2 text-white" />
                                 </div>
                             </div>
                             <div>
-                                <h2 className="text-lg font-semibold text-gray-900 tracking-tight">Yess.ai</h2>
-                                <p className="text-xs text-gray-500 font-medium">Marketing Launch</p>
+                                <h2 className="text-lg font-semibold text-gray-900 tracking-tight">Princess</h2>
+                                <p className="text-xs text-gray-500 font-medium">Project Management</p>
                             </div>
                         </div>
                     </div>
@@ -80,12 +79,14 @@ export default function Layout({ children, currentPageName }) {
                     {/* Footer */}
                     <div className="p-6 mt-auto border-t border-gray-100/80">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
-                                <span className="text-white font-semibold text-sm">MT</span>
-                            </div>
+                            <img 
+                                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/f603af03a_Proncess.jpg" 
+                                className="w-10 h-10 rounded-full object-cover" 
+                                alt="User Avatar"
+                            />
                             <div>
-                                <p className="font-semibold text-sm">Marketing Team</p>
-                                <p className="text-xs text-gray-500">team@yess.ai</p>
+                                <p className="font-semibold text-sm">Maya Cohen</p>
+                                <p className="text-xs text-gray-500">maya@email.com</p>
                             </div>
                         </div>
                     </div>
@@ -98,10 +99,12 @@ export default function Layout({ children, currentPageName }) {
                 <header className="md:hidden bg-white border-b border-gray-200 px-4 py-3">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
-                                <Rocket className="w-5 h-5 text-white" />
-                            </div>
-                            <h1 className="text-lg font-semibold text-gray-900">Yess.ai Launch</h1>
+                            <img
+                              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/f603af03a_Proncess.jpg"
+                              alt="Princess Logo"
+                              className="w-8 h-8 rounded-lg object-cover"
+                            />
+                            <h1 className="text-lg font-semibold text-gray-900">Princess</h1>
                         </div>
                         <Button variant="ghost" size="sm">
                             <Menu className="w-5 h-5" />

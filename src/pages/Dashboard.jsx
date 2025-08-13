@@ -9,8 +9,6 @@ import RequiresAttentionWidget from "../components/dashboard/RequiresAttentionWi
 import DeliverablesStatusWidget from "../components/dashboard/DeliverablesStatusWidget";
 import StageSidebar from "../components/dashboard/StageSidebar";
 import OutOfScopeForm from "../components/dashboard/OutOfScopeForm";
-import BudgetWidget from "../components/dashboard/BudgetWidget";
-import MarketingKPIWidget from "../components/dashboard/MarketingKPIWidget";
 import { Progress } from "@/components/ui/progress";
 import { Loader2 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
@@ -147,7 +145,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <aside className="w-[420px] flex-shrink-0 bg-white/60 backdrop-blur-xl border-l border-slate-200/60 overflow-y-auto">
+      <aside className="w-[380px] flex-shrink-0 bg-white/60 backdrop-blur-xl border-l border-slate-200/60 overflow-y-auto">
          <AnimatePresence>
           {selectedStage ? (
             <motion.div
@@ -174,10 +172,8 @@ export default function Dashboard() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="p-6 space-y-6"
+              className="p-8 space-y-8"
             >
-              <MarketingKPIWidget />
-              <BudgetWidget tasks={deliverables} totalBudget={850000} />
               <RequiresAttentionWidget 
                 deliverables={deliverables} 
                 outOfScopeRequests={outOfScopeRequests} 
