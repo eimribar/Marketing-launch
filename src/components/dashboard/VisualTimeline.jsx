@@ -155,46 +155,10 @@ export default function VisualTimeline({ stages, onStageClick, selectedStageId, 
 
   const phases = [
     {
-      id: 'onboarding',
-      title: 'Phase 1: Project Initiation & Setup',
+      id: 'pre-launch',
+      title: 'Phase 1: Marketing Launch Campaign',
       color: 'bg-purple-500',
-      steps: '1-15'
-    },
-    {
-      id: 'research',
-      title: 'Phase 2: Research & Discovery',
-      color: 'bg-blue-500',
-      steps: '16-48'
-    },
-    {
-      id: 'strategy',
-      title: 'Phase 3: Strategy & USP Development',
-      color: 'bg-indigo-500',
-      steps: '49-63'
-    },
-    {
-      id: 'brand_building',
-      title: 'Phase 4a: Brand Building',
-      color: 'bg-green-500',
-      steps: '64-87'
-    },
-    {
-      id: 'brand_collaterals',
-      title: 'Phase 4b: Brand Collaterals',
-      color: 'bg-amber-500',
-      steps: '76-96'
-    },
-    {
-      id: 'brand_activation',
-      title: 'Phase 4c: Brand Activation',
-      color: 'bg-red-500',
-      steps: '71-99'
-    },
-    {
-      id: 'employer_branding',
-      title: 'Phase 4d: Employer Branding',
-      color: 'bg-pink-500',
-      steps: '97-98'
+      steps: '15 steps'
     },
     {
       id: 'project_closure',

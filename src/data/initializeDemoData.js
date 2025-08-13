@@ -10,11 +10,22 @@ import {
 } from '../api/localStorage';
 
 export const initializeMarketingData = async () => {
-  // Check if data already exists
-  const existingCampaigns = await Campaign.list();
-  if (existingCampaigns.length > 0) {
-    console.log('Demo data already exists');
-    return;
+  // Check version to force reinitialize if structure changed
+  const DATA_VERSION = 'v2.0';
+  const storedVersion = localStorage.getItem('yess_data_version');
+  
+  if (storedVersion !== DATA_VERSION) {
+    // Clear all old data
+    localStorage.clear();
+    localStorage.setItem('yess_data_version', DATA_VERSION);
+    console.log('Clearing old data and reinitializing...');
+  } else {
+    // Check if data already exists
+    const existingCampaigns = await Campaign.list();
+    if (existingCampaigns.length > 0) {
+      console.log('Demo data already exists');
+      return;
+    }
   }
 
   console.log('Initializing Yess.ai marketing demo data...');
@@ -36,9 +47,9 @@ export const initializeMarketingData = async () => {
   // Create stages (individual marketing tasks) from playbook
   // The VisualTimeline expects "stages" which are the individual numbered tasks
   for (const task of marketingPlaybookData.slice(0, 15)) { // Create first 15 tasks like original
-    const status = task.number_index <= 1 ? 'completed' :
-                  task.number_index <= 8 ? 'not_started' :
-                  task.number_index <= 11 ? 'completed' : 'not_started';
+    const status = task.number_index === 1 ? 'completed' :
+                  task.number_index >= 9 && task.number_index <= 11 ? 'completed' : 
+                  'not_started';
     
     await MarketingPhase.create({
       name: task.name,
@@ -48,7 +59,7 @@ export const initializeMarketingData = async () => {
       description: task.description,
       status: status,
       is_deliverable: task.is_deliverable,
-      category: task.category,
+      category: 'pre-launch', // All 15 tasks are in pre-launch phase
       type: task.type,
       project_id: campaign.id,
       dependencies: task.dependencies || [],
