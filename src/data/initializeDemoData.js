@@ -33,111 +33,28 @@ export const initializeMarketingData = async () => {
     budget_spent: 125000
   });
 
-  // Create marketing phases
-  const phases = [
-    {
-      name: "Pre-Launch Research & Strategy",
-      order_index: 1,
-      status: "in_progress",
-      start_date: "2025-01-01",
-      end_date: "2025-03-31",
-      category: "pre-launch",
-      description: "Market research, brand positioning, and strategy development",
-      progress: 35
-    },
-    {
-      name: "Pre-Launch Content & Digital",
-      order_index: 2,
-      status: "not_started",
-      start_date: "2025-02-01",
-      end_date: "2025-04-30",
-      category: "pre-launch",
-      description: "Website development, content creation, and digital infrastructure",
-      progress: 15
-    },
-    {
-      name: "Pre-Launch Partnerships & PR",
-      order_index: 3,
-      status: "not_started",
-      start_date: "2025-03-01",
-      end_date: "2025-05-15",
-      category: "pre-launch",
-      description: "Influencer partnerships, PR strategy, and media outreach",
-      progress: 5
-    },
-    {
-      name: "Launch Campaign Execution",
-      order_index: 4,
-      status: "not_started",
-      start_date: "2025-05-01",
-      end_date: "2025-06-30",
-      category: "launch",
-      description: "Execute launch event, advertising campaigns, and coordinated marketing push",
-      progress: 0
-    },
-    {
-      name: "Post-Launch Optimization",
-      order_index: 5,
-      status: "not_started",
-      start_date: "2025-06-15",
-      end_date: "2025-08-31",
-      category: "post-launch",
-      description: "Analyze performance, optimize campaigns, and scale successful initiatives",
-      progress: 0
-    },
-    {
-      name: "Post-Launch Growth & Retention",
-      order_index: 6,
-      status: "not_started",
-      start_date: "2025-07-01",
-      end_date: "2025-12-31",
-      category: "post-launch",
-      description: "Customer retention programs, referral systems, and sustained growth",
-      progress: 0
-    }
-  ];
-
-  const createdPhases = [];
-  for (const phase of phases) {
-    const created = await MarketingPhase.create({
-      ...phase,
-      project_id: campaign.id
-    });
-    createdPhases.push(created);
-  }
-
-  // Create marketing tasks from playbook
-  const taskStatuses = ['completed', 'wip', 'in_iterations', 'not_started'];
-  const taskPriorities = ['critical', 'high', 'medium', 'low'];
-  
-  for (const task of marketingPlaybookData.slice(0, 20)) { // Create first 20 tasks
-    const phaseIndex = task.category === 'pre-launch' ? 0 : 
-                      task.category === 'launch' ? 3 : 5;
+  // Create stages (individual marketing tasks) from playbook
+  // The VisualTimeline expects "stages" which are the individual numbered tasks
+  for (const task of marketingPlaybookData.slice(0, 15)) { // Create first 15 tasks like original
+    const status = task.number_index <= 1 ? 'completed' :
+                  task.number_index <= 8 ? 'not_started' :
+                  task.number_index <= 11 ? 'completed' : 'not_started';
     
-    const status = task.number_index <= 3 ? 'completed' :
-                  task.number_index <= 6 ? 'wip' :
-                  task.number_index <= 10 ? 'in_iterations' : 'not_started';
-    
-    await MarketingTask.create({
+    await MarketingPhase.create({
       name: task.name,
       formal_name: task.formal_name,
+      number_index: task.number_index,
+      order_index: task.number_index,
       description: task.description,
-      type: task.type,
-      category: task.category,
       status: status,
-      priority: task.blocking_priority,
-      budget_allocation: task.budget_allocation,
-      budget_spent: status === 'completed' ? task.budget_allocation * 0.9 : 
-                   status === 'wip' ? task.budget_allocation * 0.4 : 0,
-      estimated_hours: task.estimated_hours,
-      actual_hours: status === 'completed' ? task.estimated_hours * 1.1 : 
-                   status === 'wip' ? task.estimated_hours * 0.5 : 0,
-      owner_role: task.owner_role,
-      stage_id: createdPhases[phaseIndex].id,
-      project_id: campaign.id,
-      due_date: new Date(2025, 2 + Math.floor(task.number_index / 5), 15).toISOString(),
       is_deliverable: task.is_deliverable,
-      dependencies: task.dependencies || []
+      category: task.category,
+      type: task.type,
+      project_id: campaign.id,
+      dependencies: task.dependencies || [],
+      assigned_to: task.number_index === 1 ? "sarah.chen@yess.ai" : null,
+      budget_allocation: task.budget_allocation,
+      estimated_hours: task.estimated_hours
     });
   }
 

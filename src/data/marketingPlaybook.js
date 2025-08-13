@@ -3,7 +3,7 @@ export const marketingPlaybookData = [
   // ============ PHASE 1: PRE-LAUNCH (3-6 months before) ============
   {
     number_index: 1,
-    name: "Market Research & Analysis",
+    name: "Market Research",
     formal_name: "Competitive Landscape and Market Opportunity Analysis",
     is_deliverable: true,
     category: 'pre-launch',
@@ -18,7 +18,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 2,
-    name: "Brand Positioning & Messaging",
+    name: "Brand Strategy",
     formal_name: "Brand Strategy and Messaging Framework",
     is_deliverable: true,
     category: 'pre-launch',
@@ -33,7 +33,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 3,
-    name: "Target Persona Development",
+    name: "Target Personas",
     formal_name: "Ideal Customer Profile and Buyer Personas",
     is_deliverable: true,
     category: 'pre-launch',
@@ -48,7 +48,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 4,
-    name: "Content Strategy Development",
+    name: "Content Strategy",
     formal_name: "Content Marketing Strategy and Editorial Calendar",
     is_deliverable: true,
     category: 'pre-launch',
@@ -63,7 +63,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 5,
-    name: "Website/Landing Page Design",
+    name: "Website Design",
     formal_name: "Product Launch Website and Landing Pages",
     is_deliverable: true,
     category: 'pre-launch',
@@ -78,7 +78,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 6,
-    name: "SEO Strategy & Implementation",
+    name: "SEO Setup",
     formal_name: "Search Engine Optimization Strategy",
     is_deliverable: true,
     category: 'pre-launch',
@@ -93,7 +93,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 7,
-    name: "Email Marketing Setup",
+    name: "Email Setup",
     formal_name: "Email Marketing Infrastructure and Automation",
     is_deliverable: true,
     category: 'pre-launch',
@@ -108,7 +108,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 8,
-    name: "Social Media Strategy",
+    name: "Social Strategy",
     formal_name: "Social Media Marketing Plan",
     is_deliverable: true,
     category: 'pre-launch',
@@ -123,7 +123,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 9,
-    name: "Influencer Partnership Strategy",
+    name: "Influencer Outreach",
     formal_name: "Influencer Marketing and Partnership Program",
     is_deliverable: true,
     category: 'pre-launch',
@@ -138,7 +138,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 10,
-    name: "PR Strategy & Media Kit",
+    name: "PR & Media Kit",
     formal_name: "Public Relations Strategy and Press Materials",
     is_deliverable: true,
     category: 'pre-launch',
@@ -153,7 +153,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 11,
-    name: "Product Demo Videos",
+    name: "Demo Videos",
     formal_name: "Product Demonstration and Explainer Videos",
     is_deliverable: true,
     category: 'pre-launch',
@@ -168,7 +168,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 12,
-    name: "Beta User Program",
+    name: "Beta Program",
     formal_name: "Early Access and Beta Testing Program",
     is_deliverable: true,
     category: 'pre-launch',
@@ -185,7 +185,7 @@ export const marketingPlaybookData = [
   // ============ PHASE 2: LAUNCH CAMPAIGN (1-2 months) ============
   {
     number_index: 13,
-    name: "Launch Event Planning",
+    name: "Launch Event",
     formal_name: "Virtual/Physical Launch Event Coordination",
     is_deliverable: true,
     category: 'launch',
@@ -200,7 +200,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 14,
-    name: "Paid Advertising Campaign",
+    name: "Ad Campaign",
     formal_name: "Digital Advertising Campaign Launch",
     is_deliverable: true,
     category: 'launch',
@@ -215,7 +215,7 @@ export const marketingPlaybookData = [
   },
   {
     number_index: 15,
-    name: "Email Launch Sequence",
+    name: "Launch Emails",
     formal_name: "Product Launch Email Campaign",
     is_deliverable: true,
     category: 'launch',
